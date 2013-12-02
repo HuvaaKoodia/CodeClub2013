@@ -17,8 +17,12 @@ namespace CodeClubShmup1.Scenes
         public MenuScene()
             : base()
         {
-            button1 = new Button(Resources.GetTexture("Enemy"), 
-                new Vector2(700, 100));
+            button1 = 
+                new Button(Resources.GetTexture("Button"), 
+                new Vector2(700, 100),
+                "Nappi!!!!!!1!",
+                Resources.GetFont("CSfont")
+                );
             button1.OnButtonPressed += onButton1Press;
         }
 
@@ -45,7 +49,8 @@ namespace CodeClubShmup1.Scenes
 
         void onButton1Press()
         {
-            Console.WriteLine("Nyt nappia kovaa painetaan.");
+            SceneSys.CloseCurrentScene();
+            SceneSys.PauseCurrentScene(false);
         }
     }
 }

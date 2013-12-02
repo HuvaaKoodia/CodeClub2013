@@ -33,6 +33,14 @@ namespace CodeClubShmup1.Scenes
             background1 = new ScrollingBackground(new Vector2(-100,-100), 40, new Sprite(Resources.GetTexture("StarWars")));
             background2 = new ScrollingBackground(new Vector2(0,0), 30, new Sprite(Resources.GetTexture("StarWars")));
 
+            Game1.camera.setZoom(1.5f);
+
+            Vector2 offset = 
+                new Vector2(Game1.screen_size.Width, Game1.screen_size.Height) * 0.5f;
+
+            Game1.camera.PositionOffset = offset;
+            Game1.camera.setOffset(offset);
+
         }
 
         public override void Update(float dt)
@@ -127,10 +135,19 @@ namespace CodeClubShmup1.Scenes
                 }
             }
 
-            //ruudun leveys
-            //screen_size.Width;
+            Game1.camera.Position = player.Position;
 
-            // TODO: Add your update logic here
+            Vector2 offset = Game1.camera.PositionOffset / Game1.camera.getZoom();
+
+            if (Game1.camera.Position.X < offset.X)
+                Game1.camera.Position.X = offset.X;
+            if (Game1.camera.Position.X > Game1.screen_size.Width - offset.X)
+                Game1.camera.Position.X = Game1.screen_size.Width - offset.X;
+               
+            if (Game1.camera.Position.Y < offset.Y)
+                Game1.camera.Position.Y = offset.Y;
+            if (Game1.camera.Position.Y > Game1.screen_size.Height - offset.Y)
+                Game1.camera.Position.Y = Game1.screen_size.Height - offset.Y;
 
         }
 
