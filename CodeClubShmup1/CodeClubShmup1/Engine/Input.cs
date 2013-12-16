@@ -23,7 +23,7 @@ namespace CodeClubShmup1.Engine
         }
         public static bool isCheat()
         {
-            if (lastkeys.Contains("THERE IS NO URF LEVEL"))
+            if (lastkeys.Contains("ATJ"))
             {
                 lastkeys = "";
                 return true;
@@ -33,14 +33,13 @@ namespace CodeClubShmup1.Engine
         }
         public static void checkCheat()
         {
-            Keys[] cheats = { Keys.T, Keys.H, Keys.E, Keys.R, Keys.I, Keys.S, Keys.N, Keys.O, Keys.Space, Keys.U, Keys.F, Keys.L, Keys.V };
-            string[] strings = { "T", "H", "E", "R", "I", "S", "N", "O", " ", "U", "F", "L", "V" };
+            Keys[] cheats = { Keys.A,Keys.T,Keys.J};
             for (int i = 0; i < cheats.Count(); i++)
             {
                 if (lastkeys.Length >= 22)
                     lastkeys.Remove(0);
                 if (IsKeyPressed(cheats[i]))
-                    lastkeys += strings[i];
+                    lastkeys +=cheats[i].ToString();
 
             }
         }
