@@ -9,15 +9,39 @@ namespace CodeClubShmup1.Engine
 {
     class Input
     {
+        static public string lastkeys = "";
         static KeyboardState k_state, k_state_old;
 
         static MouseState m_state, m_state_old;
 
         public static void UpdateState() {
+            checkCheat();
             k_state_old = k_state;
             k_state = Keyboard.GetState();
             m_state_old = m_state;
             m_state = Mouse.GetState();
+        }
+        public static bool isCheat()
+        {
+            if (lastkeys.Contains("ATJ"))
+            {
+                lastkeys = "";
+                return true;
+            }
+            return false;
+
+        }
+        public static void checkCheat()
+        {
+            Keys[] cheats = { Keys.A,Keys.T,Keys.J};
+            for (int i = 0; i < cheats.Count(); i++)
+            {
+                if (lastkeys.Length >= 22)
+                    lastkeys.Remove(0);
+                if (IsKeyPressed(cheats[i]))
+                    lastkeys +=cheats[i].ToString();
+
+            }
         }
 
         // Keys

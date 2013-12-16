@@ -21,7 +21,7 @@ namespace CodeClubShmup1.Scenes
 
         Random random = new Random();
         Timer enemy_spawn_timer;
-
+        bool cheat = false;
         Player player;
 
         HUDScene hud;
@@ -58,19 +58,30 @@ namespace CodeClubShmup1.Scenes
         public override void Update(float dt)
         {
             base.Update(dt);
-
+            if (Input.isCheat())
+                cheat = !cheat;
             if (Input.IsKeyPressed(Keys.M))
             {
                 Paused = true;
                 SceneSys.OpenScene(new MenuScene());
             }
-
+	    background3.Update(dt);
             background1.Update(dt);
             background2.Update(dt);
-            background3.Update(dt);
-
-            if (Input.IsKeyPressed(Keys.Space) && !player.IsDead)
-                bullets.Add(new Bullet(Resources.GetTexture("Bullet"), player.Position, 10));
+            
+	    if (!cheat)
+            {
+                if (Input.IsKeyPressed(Keys.Space) && !player.IsDead)
+                bullets.Add(new Bullet(Resources.GetTexture("Bullet"), player.Position, 700));
+            }
+            else
+            {
+                if (Input.IsKeyDown(Keys.Space))
+                {
+                    //for(int i = 0;i< 10;i++)
+                     bullets.Add(new Bullet(Resources.GetTexture("Bullet"), player.Position, 10));
+                }
+            }
 
             if (enemy_spawn_timer.Update(dt))
             {
@@ -189,6 +200,8 @@ namespace CodeClubShmup1.Scenes
             DrawSys.DrawText("much graphics", Resources.GetFont("CSfont"), new Vector2(100, 100), Color.BlueViolet);
             DrawSys.DrawText("such goty", Resources.GetFont("CSfont"), new Vector2(300, 300), Color.Gray);
             DrawSys.DrawText("wow", Resources.GetFont("CSfont"), new Vector2(400, 411), Color.RosyBrown);
+            DrawSys.DrawText("ALL YOUR BASE ARE BELONG TO ATJ", Resources.GetFont("CSfont"), new Vector2(300, 411), Color.BurlyWood);
+
 
             if (!player.IsDead)
                 player.Draw();
