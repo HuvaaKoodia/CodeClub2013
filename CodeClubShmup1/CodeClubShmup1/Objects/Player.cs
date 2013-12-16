@@ -12,7 +12,7 @@ namespace CodeClubShmup1.Objects
     public class Player:ObjectParent
     {
 
-        int hp = 100;
+        int hp = 140;
         public int HP
         {
             get { return hp; }

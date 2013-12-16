@@ -66,7 +66,7 @@ namespace CodeClubShmup1.Scenes
             background2.Update(dt);
 
             if (Input.IsKeyPressed(Keys.Space) && !player.IsDead)
-                bullets.Add(new Bullet(Resources.GetTexture("Bullet"), player.Position, 700));
+                bullets.Add(new Bullet(Resources.GetTexture("Bullet"), player.Position, 10));
 
             if (enemy_spawn_timer.Update(dt))
             {
