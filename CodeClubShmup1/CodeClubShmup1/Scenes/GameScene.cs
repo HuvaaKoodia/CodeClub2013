@@ -201,6 +201,9 @@ namespace CodeClubShmup1.Scenes
             if (!player.IsDead)
                 player.Draw();
 
+            if (Input.IsKeyDown(Keys.Space) && !player.IsDead)
+                DrawSys.DrawText("SOTANORSU", Resources.GetFont("CSfont"), new Vector2(200, 250), Color.Red);
+
             foreach (Bullet item in bullets)
             {
                 item.Draw();
