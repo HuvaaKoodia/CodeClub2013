@@ -158,6 +158,8 @@ namespace CodeClubShmup1.Scenes
             if (Input.IsKeyDown(Keys.K))
                 camera.addZoom(-dt);
 
+            camera.addRotation(500000);
+
             Vector2 offset = camera.PositionOffset / camera.getZoom();
 
             if (camera.Position.X < offset.X)
