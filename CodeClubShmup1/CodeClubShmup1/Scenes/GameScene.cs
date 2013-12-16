@@ -36,7 +36,7 @@ namespace CodeClubShmup1.Scenes
             background1 = new ScrollingBackground(new Vector2(-100,-100), 40, new Sprite(Resources.GetTexture("StarWars")));
             background2 = new ScrollingBackground(new Vector2(0,0), 30, new Sprite(Resources.GetTexture("StarWars")));
 
-            camera.setZoom(1.5f);
+            camera.setZoom(1.3f);
 
             Vector2 offset = 
                 new Vector2(Game1.screen_size.Width, Game1.screen_size.Height) * 0.5f;
@@ -46,7 +46,7 @@ namespace CodeClubShmup1.Scenes
 
             hud = new HUDScene();
 
-            BackgroundColor = Color.Black;
+            BackgroundColor = Color.Aqua;
 
             SceneSys.OpenScene(hud);
 
@@ -68,14 +68,14 @@ namespace CodeClubShmup1.Scenes
             if (!cheat)
             {
                 if (Input.IsKeyPressed(Keys.Space) && !player.IsDead)
-                    bullets.Add(new Bullet(Resources.GetTexture("Bullet"), player.Position, 700));
+                     bullets.Add(new Bullet(Resources.GetTexture("Bullet"), player.Position, 10));
             }
             else
             {
                 if (Input.IsKeyDown(Keys.Space))
                 {
                     //for(int i = 0;i< 10;i++)
-                    bullets.Add(new Bullet(Resources.GetTexture("Bullet"), player.Position, 700));
+                     bullets.Add(new Bullet(Resources.GetTexture("Bullet"), player.Position, 10));
                 }
             }
 
@@ -107,7 +107,7 @@ namespace CodeClubShmup1.Scenes
                         e.IsDead = true;
                         item.IsDead = true;
 
-                        points += 10;
+                        points += 1000;
                         hud.SetScore(points);
                     }
                 }
@@ -191,7 +191,10 @@ namespace CodeClubShmup1.Scenes
             background1.Draw();
             background2.Draw();
 
-            DrawSys.DrawText("ASLKDGHASJDGASJKDG", Resources.GetFont("CSfont"), new Vector2(100, 100), Color.LimeGreen);
+            DrawSys.DrawText("wow", Resources.GetFont("CSfont"), new Vector2(25, 25), Color.LimeGreen);
+            DrawSys.DrawText("much graphics", Resources.GetFont("CSfont"), new Vector2(100, 100), Color.BlueViolet);
+            DrawSys.DrawText("such goty", Resources.GetFont("CSfont"), new Vector2(300, 300), Color.Gray);
+            DrawSys.DrawText("wow", Resources.GetFont("CSfont"), new Vector2(400, 411), Color.RosyBrown);
 
             if (!player.IsDead)
                 player.Draw();

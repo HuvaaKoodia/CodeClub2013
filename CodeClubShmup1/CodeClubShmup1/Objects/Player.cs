@@ -12,7 +12,7 @@ namespace CodeClubShmup1.Objects
     public class Player:ObjectParent
     {
 
-        int hp = 100;
+        int hp = 140;
         public int HP
         {
             get { return hp; }
@@ -28,7 +28,9 @@ namespace CodeClubShmup1.Objects
 
         public Player(Texture2D texture, Vector2 position, float speed)
             : base(texture, position, speed)
-        { }
+        {
+            _sprite = new Sprite(texture, 32, 32, 3, 350);
+        }
 
         public void Update(float deltaTime)
         {
