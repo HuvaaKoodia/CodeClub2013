@@ -36,7 +36,7 @@ namespace CodeClubShmup1.Scenes
             background1 = new ScrollingBackground(new Vector2(-100,-100), 40, new Sprite(Resources.GetTexture("StarWars")));
             background2 = new ScrollingBackground(new Vector2(0,0), 30, new Sprite(Resources.GetTexture("StarWars")));
 
-            camera.setZoom(1.5f);
+            camera.setZoom(0.5f);
 
             Vector2 offset = 
                 new Vector2(Game1.screen_size.Width, Game1.screen_size.Height) * 0.5f;
