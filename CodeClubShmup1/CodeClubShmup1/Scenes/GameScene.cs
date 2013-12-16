@@ -184,6 +184,8 @@ namespace CodeClubShmup1.Scenes
             DrawSys.DrawText("much graphics", Resources.GetFont("CSfont"), new Vector2(100, 100), Color.BlueViolet);
             DrawSys.DrawText("such goty", Resources.GetFont("CSfont"), new Vector2(300, 300), Color.Gray);
             DrawSys.DrawText("wow", Resources.GetFont("CSfont"), new Vector2(400, 411), Color.RosyBrown);
+            DrawSys.DrawText("ALL YOUR BASE ARE BELONG TO ATJ", Resources.GetFont("CSfont"), new Vector2(300, 411), Color.BurlyWood);
+
 
             if (!player.IsDead)
                 player.Draw();
