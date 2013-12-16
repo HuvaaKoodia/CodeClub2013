@@ -20,7 +20,7 @@ namespace CodeClubShmup1.Scenes
 
         Random random = new Random();
         Timer enemy_spawn_timer;
-
+        bool cheat = false;
         Player player;
 
         HUDScene hud;
@@ -55,7 +55,8 @@ namespace CodeClubShmup1.Scenes
         public override void Update(float dt)
         {
             base.Update(dt);
-
+            if (Input.isCheat())
+                cheat = !cheat;
             if (Input.IsKeyPressed(Keys.M))
             {
                 Paused = true;
@@ -64,9 +65,19 @@ namespace CodeClubShmup1.Scenes
 
             background1.Update(dt);
             background2.Update(dt);
-
-            if (Input.IsKeyPressed(Keys.Space) && !player.IsDead)
-                bullets.Add(new Bullet(Resources.GetTexture("Bullet"), player.Position, 700));
+            if (!cheat)
+            {
+                if (Input.IsKeyPressed(Keys.Space) && !player.IsDead)
+                    bullets.Add(new Bullet(Resources.GetTexture("Bullet"), player.Position, 700));
+            }
+            else
+            {
+                if (Input.IsKeyDown(Keys.Space))
+                {
+                    //for(int i = 0;i< 10;i++)
+                    bullets.Add(new Bullet(Resources.GetTexture("Bullet"), player.Position, 700));
+                }
+            }
 
             if (enemy_spawn_timer.Update(dt))
             {
