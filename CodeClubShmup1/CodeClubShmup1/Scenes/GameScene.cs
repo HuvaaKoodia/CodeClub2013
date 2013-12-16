@@ -14,6 +14,7 @@ namespace CodeClubShmup1.Scenes
     {
         ScrollingBackground background1;
         ScrollingBackground background2;
+        ScrollingBackground background3;
 
         List<Bullet> bullets = new List<Bullet>();
         List<Enemy> enemies = new List<Enemy>();
@@ -33,8 +34,10 @@ namespace CodeClubShmup1.Scenes
 
             player = new Player(Resources.GetTexture("Ship"), new Vector2(100, 100), 5);
 
-            background1 = new ScrollingBackground(new Vector2(-100,-100), 40, new Sprite(Resources.GetTexture("StarWars")));
+            background1 = new ScrollingBackground(new Vector2(0,0), 40, new Sprite(Resources.GetTexture("BG0")));
             background2 = new ScrollingBackground(new Vector2(0,0), 30, new Sprite(Resources.GetTexture("StarWars")));
+            background3 = new ScrollingBackground(new Vector2(0,0), 20, new Sprite(Resources.GetTexture("BG2")));
+
 
             camera.setZoom(1.3f);
 
@@ -62,13 +65,14 @@ namespace CodeClubShmup1.Scenes
                 Paused = true;
                 SceneSys.OpenScene(new MenuScene());
             }
-
+	    background3.Update(dt);
             background1.Update(dt);
             background2.Update(dt);
-            if (!cheat)
+            
+	    if (!cheat)
             {
                 if (Input.IsKeyPressed(Keys.Space) && !player.IsDead)
-                     bullets.Add(new Bullet(Resources.GetTexture("Bullet"), player.Position, 10));
+                bullets.Add(new Bullet(Resources.GetTexture("Bullet"), player.Position, 700));
             }
             else
             {
@@ -190,6 +194,7 @@ namespace CodeClubShmup1.Scenes
            
             background1.Draw();
             background2.Draw();
+            background3.Draw();
 
             DrawSys.DrawText("wow", Resources.GetFont("CSfont"), new Vector2(25, 25), Color.LimeGreen);
             DrawSys.DrawText("much graphics", Resources.GetFont("CSfont"), new Vector2(100, 100), Color.BlueViolet);

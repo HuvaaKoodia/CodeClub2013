@@ -73,6 +73,8 @@ namespace CodeClubShmup1
             Resources.LoadTexture2D("Bullet");
             Resources.LoadTexture2D("Enemy");
             Resources.LoadTexture2D("StarWars");
+            Resources.LoadTexture2D("BG0");
+            Resources.LoadTexture2D("BG2");
             Resources.LoadTexture2D("HP_bar_fill");
             Resources.LoadTexture2D("HP_bar_borders");
 
