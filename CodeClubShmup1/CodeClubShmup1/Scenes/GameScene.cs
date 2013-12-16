@@ -31,7 +31,7 @@ namespace CodeClubShmup1.Scenes
         {
             enemy_spawn_timer = new Timer(3000);
 
-            player = new Player(Resources.GetTexture("Ship"), new Vector2(100, 100), 5);
+            player = new Player(Resources.GetTexture("Ship"), new Vector2(100, 100), 6);
 
             background1 = new ScrollingBackground(new Vector2(-100,-100), 40, new Sprite(Resources.GetTexture("StarWars")));
             background2 = new ScrollingBackground(new Vector2(0,0), 30, new Sprite(Resources.GetTexture("StarWars")));
