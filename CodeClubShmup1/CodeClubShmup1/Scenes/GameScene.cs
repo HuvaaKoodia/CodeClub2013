@@ -208,7 +208,7 @@ namespace CodeClubShmup1.Scenes
 
             if (Input.IsKeyDown(Keys.Space) && !player.IsDead)
                 DrawSys.DrawText("SOTANORSU", Resources.GetFont("CSfont"), new Vector2(200, 250), Color.Red);
-            if (enemy_spawn_timer.Delay >= 200)
+            if (enemy_spawn_timer.Delay == 200)
             {
                 DrawSys.DrawText("SO MUCH ATJ", Resources.GetFont("CSfont"), new Vector2(100, 100), Color.Blue);
             }
