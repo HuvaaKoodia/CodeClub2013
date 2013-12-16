@@ -205,12 +205,12 @@ namespace CodeClubShmup1.Scenes
 
             if (!player.IsDead)
                 player.Draw();
-
+            
             if (Input.IsKeyDown(Keys.Space) && !player.IsDead)
                 DrawSys.DrawText("SOTANORSU", Resources.GetFont("CSfont"), new Vector2(200, 250), Color.Red);
             if (enemy_spawn_timer.Delay == 200)
             {
-                DrawSys.DrawText("SO MUCH ATJ", Resources.GetFont("CSfont"), new Vector2(100, 100), Color.Blue);
+                DrawSys.DrawText("SO MUCH ATJ", Resources.GetFont("CSfont"), new Vector2(70, 70), Color.Blue);
             }
             foreach (Bullet item in bullets)
             {
@@ -220,6 +220,7 @@ namespace CodeClubShmup1.Scenes
             {
                 item.Draw();
             }
+            background3.Draw();
         }
     }
 }
