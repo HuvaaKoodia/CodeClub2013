@@ -46,7 +46,10 @@ namespace CodeClubShmup1.Scenes
 
             hud = new HUDScene();
 
+            BackgroundColor = Color.Black;
+
             SceneSys.OpenScene(hud);
+
         }
 
         public override void Update(float dt)
@@ -63,7 +66,7 @@ namespace CodeClubShmup1.Scenes
             background2.Update(dt);
 
             if (Input.IsKeyPressed(Keys.Space) && !player.IsDead)
-                bullets.Add(new Bullet(Resources.GetTexture("Bullet"), player.Position, 100));
+                bullets.Add(new Bullet(Resources.GetTexture("Bullet"), player.Position, 700));
 
             if (enemy_spawn_timer.Update(dt))
             {
@@ -173,7 +176,7 @@ namespace CodeClubShmup1.Scenes
 
         public override void Draw()
         {
-            BackgroundColor = Color.BlanchedAlmond;
+           
             background1.Draw();
             background2.Draw();
 
